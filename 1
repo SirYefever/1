@@ -1,0 +1,18 @@
+def F(x):
+  if abs(x)%100 == 14:
+    return True
+  else:
+    return False
+kol = 0
+V = []
+C = []
+f = open('test.txt')
+for line in f:
+  C.append(int(line))
+  avg = sum(C)/len(C)
+for j in range (len(C)-2):
+  if ((C[j]<avg) and C[j+1]<avg) or (C[j]<avg and C[j+2]<avg) or (C[j+1]<avg and C[j+2]<avg) and (F(C[j]) or F(C[j+1]) or F(C[j+2])):
+    kol +=1
+    V.append(C[j] + C[j+1] + C[j+2])
+print (max(V))
+print (kol)
